@@ -1,0 +1,30 @@
+\section{Viscoelastic Material Analysis Metrics}\label{sect:ve_analysis}
+
+The System Dependency and Phantoms Task Force identified that ``simple'',
+analytic viscoelastic material models, such as Voigt and Maxwell materials,
+inadequately capture the phase velocity trends measured across the energetic
+frequency ranges associate with liver shear wave speed characterization [CITE].
+Instead of using an analytic VE material model, we proposed characterizing the
+phantoms using a linear dispersion model of the form
+
+\begin{equation}
+c(f) = c_0 + \frac{dc}{df} f.
+\end{equation}
+
+This linear model was fit to the 2D Fourier transform of axial velocity data
+over a frequency range of 100--400 Hz, and two metrics were used to
+characterize the viscoelasticity of materials:
+
+\begin{enumerate}
+    \item Phase velocity at 200 Hz ($c_{200}$), and
+    \item Line phase velocity slope from 100--400 Hz ($\frac{dc}{df}$).
+\end{enumerate}
+
+This model was applied to human data in patients with liver
+fibrosis~\cite{Palmeri2011} (Figure~\ref{fig:phantom_liver_scatter_plot}) to
+establish a range of realistic linear dispersion VE material values for healthy
+through advanced fibrosis liver health.
+
+\input{fig_phantom_liver_scatter_plot}
+
+\input{fig_phase2_longitudinal_stability}
