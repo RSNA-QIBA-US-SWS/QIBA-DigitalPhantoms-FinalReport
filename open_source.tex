@@ -1,23 +1,6 @@
 \section{Open-Source Numerical Shear Wave Solvers}\label{sect:open_source}
 
-\subsection{FEBio}
-Building on Round III effort, Dr. Jiang has extended the FEBio (INSERT FOOTNOTE
-URL) model of elastic shear wave propagation to include viscoelastic media.  An
-example FEBio simulation template has been provided in the GitHub repository:
-
-\url{https://github.com/RSNA-QIBA-US-SWS/QIBA-DigitalPhantoms/tree/master/febio}
-
-Below is a comparison of the reconstructed viscoelastic material metrics
-reconstructed for the 3 configurations used to generate the viscoelastic
-digital phantoms:
-
-INSERT TABLE HERE
-
-It was found during Round III that the lack of a perfect matching layer
-boundary condition or any other damping boundary that can simulate a
-semi-infinite medium introduced appreciable artifact in the FEBio models.
-These boundary condition limitations are still a first-order limitation of
-using FEBio as a replacement for the commercial FEA solvers.
+\input{febio}
 
 \subsection{C-Scan Finite Difference Code}
 Dr. McAleavey has developed finite difference code solving shear wave
