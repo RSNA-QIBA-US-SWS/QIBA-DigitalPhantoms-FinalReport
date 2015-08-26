@@ -85,15 +85,27 @@ and the corresponding code to process the data are available on GitHub:
 \url{https://github.com/RSNA-QIBA-US-SWS/QIBA-DigitalPhantoms/tree/master/results}
 
 \subsection{Viscoelastic Materials}
+Viscoelastic digital phantoms have been created to more faithfully represent the known viscous properties of healthy and diseased liver tissue (Figure~\ref{fig:phantom_liver_scatter_plot}).  Given the large parametric space of focal / excitation configurations in the elastic digital phantoms, we restricted the viscoelastic phantoms to three representative parameter sets that closely match the CIRS Phase II phantoms (Figure~\ref{fig:phantom_liver_scatter_plot}).  The viscoelastic parameters were numerically defining a shear relaxation model of the form:
+\begin{equation}
+    G(t) = G_\infty + (G_0 - G_\infty)e^{-\beta t}.
+\label{eqn:shear_relaxation}
+\end{equation}
+Figure~\ref{fig:ve_data} shows the k-space representations of the spatial and
+temporal frequency content arising from a test, axisymmetric Gaussian
+excitation, with the associated phase velocity at 200 Hz, and the linear phase
+slope from 100--400 Hz.  Table~\ref{table:ve_data} shows how these phase
+velocity metrics compare to theoretical values, where the 200 Hz phase
+velocities are all $<$5\% overestimation compared to theory, and the phase
+velocity slopes are roughly within 10\% of the theoretical slopes.
 
 \begin{figure}[htb!]
     \centering
     \begin{tabular}{c}
-        $G_0$ = 10.0 kPa, $G_\infty$ = 2.0 kPa, $\beta$ = 6666.7 Pa$\cdot$s\\
+        $G_0$ = 10.0 kPa, $G_\infty$ = 2.0 kPa, $\beta$ = 6666.7 s$^{-1}$\\
         \includegraphics[width=0.75\linewidth]{figs/G010kPa_GI2kPa_BETA6667.png}\\
-        $G_0$ = 15.0 kPa, $G_\infty$ = 4.0 kPa, $\beta$ = 5500.0 Pa$\cdot$s\\
+        $G_0$ = 15.0 kPa, $G_\infty$ = 4.0 kPa, $\beta$ = 5500.0 s$^{-1}$\\
         \includegraphics[width=0.75\linewidth]{figs/G015kPa_GI4kPa_BETA5500.png}\\
-        $G_0$ = 20.0 kPa, $G_\infty$ = 4.0 kPa, $\beta$ = 4000.0 Pa$\cdot$s\\
+        $G_0$ = 20.0 kPa, $G_\infty$ = 4.0 kPa, $\beta$ = 4000.0 s$^{-1}$\\
         \includegraphics[width=0.75\linewidth]{figs/G020kPa_GI4kPa_BETA4000.png}\\
     \end{tabular}
     \caption{Representative k-space and phase velocity reconstructions 3
@@ -101,7 +113,6 @@ and the corresponding code to process the data are available on GitHub:
         (Figure~\ref{fig:phantom_liver_scatter_plot}).}
 \label{fig:ve_data}
 \end{figure}
-
 
 \begin{table}[htb!]
     \centering
@@ -111,7 +122,7 @@ and the corresponding code to process the data are available on GitHub:
         the FEM-derived metric and the theory are shown in parentheses.}
     \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
-    \multirow{2}{*}{$G_0$ (kPa)} & \multirow{2}{*}{$G_\infty$ (kPa)} & \multirow{2}{*}{$\beta$ (Pa$\cdot$s)} & \multicolumn{2}{c|}{$c$ (200 Hz, m/s)} & \multicolumn{2}{c|}{$\frac{dc}{df}$ ((m/s)/Hz)} \\ \cline{4-7}
+    \multirow{2}{*}{$G_0$ (kPa)} & \multirow{2}{*}{$G_\infty$ (kPa)} & \multirow{2}{*}{$\beta$ (s$^{-1}$)} & \multicolumn{2}{c|}{$c$ (200 Hz, m/s)} & \multicolumn{2}{c|}{$\frac{dc}{df}$ ((m/s)/Hz)} \\ \cline{4-7}
             & & & Theory & FEM & Theory & FEM \\ 
             \hline
             10.0 & 2.0 & 6666.7 & 1.71 & 1.78 (+4.1\%) & 2.16 & 2.33 (+7.9\%) \\ \hline
@@ -119,5 +130,11 @@ and the corresponding code to process the data are available on GitHub:
             20.0 & 4.0 & 4000.0 & 2.84 & 2.97 (+4.6\%) & 4.21 & 4.64 (+10.2\%) \\
     \hline
     \end{tabular}
-\label{table:elastic}
+\label{table:ve_data}
 \end{table}
+
+These viscoelastic material formulations were then numerical solved for
+different focal / excitation configurations, as was done for the elastic
+digital phantoms (Tables~\ref{table:curvilinear} \&~\ref{table:arf}).  The
+viscoelastic digital phantom data has also be uploaded to the QIDW
+US-SWS-Digital-Phantoms community.
