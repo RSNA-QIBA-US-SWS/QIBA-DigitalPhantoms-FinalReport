@@ -85,3 +85,39 @@ and the corresponding code to process the data are available on GitHub:
 \url{https://github.com/RSNA-QIBA-US-SWS/QIBA-DigitalPhantoms/tree/master/results}
 
 \subsection{Viscoelastic Materials}
+
+\begin{figure}[htb!]
+    \centering
+    \begin{tabular}{c}
+        $G_0$ = 10.0 kPa, $G_\infty$ = 2.0 kPa, $\beta$ = 6666.7 Pa$\cdot$s\\
+        \includegraphics[width=0.75\linewidth]{figs/G010kPa_GI2kPa_BETA6667.png}\\
+        $G_0$ = 15.0 kPa, $G_\infty$ = 4.0 kPa, $\beta$ = 5500.0 Pa$\cdot$s\\
+        \includegraphics[width=0.75\linewidth]{figs/G015kPa_GI4kPa_BETA5500.png}\\
+        $G_0$ = 20.0 kPa, $G_\infty$ = 4.0 kPa, $\beta$ = 4000.0 Pa$\cdot$s\\
+        \includegraphics[width=0.75\linewidth]{figs/G020kPa_GI4kPa_BETA4000.png}\\
+    \end{tabular}
+    \caption{Representative k-space and phase velocity reconstructions 3
+        viscoelastic materials that resemble the CIRS Phase II phantoms
+        (Figure~\ref{fig:phantom_liver_scatter_plot}).}
+\label{fig:ve_data}
+\end{figure}
+
+
+\begin{table}[htb!]
+    \centering
+    \caption{Viscoelastic material phase velocity metrics compared to theory.
+        The phase velocity was calculated at 200 Hz, and the phase velocity
+        slope was calculated from 100--400 Hz.  Percent error deviation between
+        the FEM-derived metric and the theory are shown in parentheses.}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \multirow{2}{*}{$G_0$ (kPa)} & \multirow{2}{*}{$G_\infty$ (kPa)} & \multirow{2}{*}{$\beta$ (Pa$\cdot$s)} & \multicolumn{2}{c|}{$c$ (200 Hz, m/s)} & \multicolumn{2}{c|}{$\frac{dc}{df}$ ((m/s)/Hz)} \\ \cline{4-7}
+            & & & Theory & FEM & Theory & FEM \\ 
+            \hline
+            10.0 & 2.0 & 6666.7 & 1.71 & 1.78 (+4.1\%) & 2.16 & 2.33 (+7.9\%) \\ \hline
+            15.0 & 4.0 & 5500.0 & 2.33 & 2.38 (+2.1\%) & 2.47 & 2.72 (+10.1\%) \\ \hline
+            20.0 & 4.0 & 4000.0 & 2.84 & 2.97 (+4.6\%) & 4.21 & 4.64 (+10.2\%) \\
+    \hline
+    \end{tabular}
+\label{table:elastic}
+\end{table}
