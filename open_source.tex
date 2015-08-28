@@ -1,26 +1,5 @@
-\section{Open-Source Numerical Shear Wave Solvers}\label{sect:open_source}
+\section{Open Source Numerical Shear Wave Solvers}\label{sect:open_source}
 
 \input{febio}
 
-\subsection{C-Scan Finite Difference Code}
-Dr. McAleavey has developed finite difference code solving shear wave
-propagation in C-scan planes in viscoelastic media.  This code has been
-optimized to run in a GPGPU environment on a desktop workstation and requires
-considerably lower computation overhead than the commercial FEA software
-packages used to generate the digital phantom data uploaded to QIDW.
-
-Source code for this finite difference algorithm has been shared in the GitHub
-repository:
-
-INSERT HYPERLINK HERE
-
-Below is a comparison of the reconstructed viscoelastic material metrics
-reconstructed for the 3 configurations used to generate the viscoelastic
-digital phantoms:
-
-INSERT TABLE HERE
-
-This code provides accurate solutions in the C-scan plane, but full volumetric
-simulated displacement / velocity data are not yet available using this
-approach.  This code will continue to evolve through external funding beyond
-the scope of QIBA support.
+\input{steve}
