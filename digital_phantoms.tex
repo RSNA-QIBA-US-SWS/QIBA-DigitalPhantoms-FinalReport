@@ -25,7 +25,8 @@ A nominal curvilinear array configuration was chosen for all of the simulations
 \label{table:curvilinear}
 \end{table}
 
-The acoustic radiation force excitation was simulated with several focal configurations (Table~\ref{table:arf}).
+The acoustic radiation force excitation was simulated with several focal
+configurations (Table~\ref{table:arf}).
 
 \begin{table}[htb!]
     \centering
@@ -65,8 +66,10 @@ acoustic radiation force focal configurations (Table~\ref{table:elastic}).
 \end{table}
 
 The finite mesh boundaries were either simulated having perfect matching layers
-or infinite elements to reduce artifacts associated with compression and
-shear wave reflections back into the regions of interest.  Different mesh densities were also studied to evaluate numerical accuracy; ultimately a uniform node spacing of 0.167 mm was used for the digital phantoms.
+or infinite elements to reduce artifacts associated with compression and shear
+wave reflections back into the regions of interest.  Different mesh densities
+were also studied to evaluate numerical accuracy; ultimately a uniform node
+spacing of 0.167 mm was used for the digital phantoms.
 
 All of the model configuration scripts for LS-DYNA and ABAQUS have been uploaded to GitHub:
 
@@ -79,13 +82,21 @@ a single archive to QIDW:
 \url{http://qidw.rsna.org/community/14}:\verb+US-SWS-Digital-Phantoms -> Public ->+\\
 \verb+Elastic Digital Phantoms -> ElasticDigitalPhantomDataMesh0p167mm.zip+
 
-A comprehensive comparison of LS-DYNA and ABAQUS results has been performed
-and the corresponding code to process the data are available on GitHub:
+A comprehensive comparison of LS-DYNA and ABAQUS results has been
+performed~\cite{Bernal2011}, and the corresponding code to process the data are
+available on GitHub:
 
 \url{https://github.com/RSNA-QIBA-US-SWS/QIBA-DigitalPhantoms/tree/master/results}
 
 \subsection{Viscoelastic Materials}
-Viscoelastic digital phantoms have been created to more faithfully represent the known viscous properties of healthy and diseased liver tissue (Figure~\ref{fig:phantom_liver_scatter_plot}).  Given the large parametric space of focal / excitation configurations in the elastic digital phantoms, we restricted the viscoelastic phantoms to three representative parameter sets that closely match the CIRS Phase II phantoms (Figure~\ref{fig:phantom_liver_scatter_plot}).  The viscoelastic parameters were numerically defining a shear relaxation model of the form:
+Viscoelastic digital phantoms have been created to more faithfully represent
+the known viscous properties of healthy and diseased liver tissue
+(Figure~\ref{fig:phantom_liver_scatter_plot}).  Given the large parametric
+space of focal / excitation configurations in the elastic digital phantoms, we
+restricted the viscoelastic phantoms to three representative parameter sets
+that closely match the CIRS Phase II phantoms
+(Figure~\ref{fig:phantom_liver_scatter_plot}).  The viscoelastic parameters
+were numerically defining a shear relaxation model of the form:
 \begin{equation}
     G(t) = G_\infty + (G_0 - G_\infty)e^{-\beta t}.
 \label{eqn:shear_relaxation}
@@ -138,3 +149,24 @@ different focal / excitation configurations, as was done for the elastic
 digital phantoms (Tables~\ref{table:curvilinear} \&~\ref{table:arf}).  The
 viscoelastic digital phantom data has also be uploaded to the QIDW
 US-SWS-Digital-Phantoms community.
+
+There are a number of areas of data processing and analysis that could lead to
+differences in estimated values of shear wave velocity, particularly for
+viscoelastic materials. For the purposes of analysis of the viscoelastic
+phantoms, a Fourier-based analysis is typically performed. As the data is
+discrete, fast Fourier transforms (FFTs) are applied to the data to transform
+the spatiotemporal data to the Fourier domain (commonly referred to k-space).
+Different groups apply different spatial and temporal windows to the data
+before the FFTs are applied which can alter the subsequent data analysis.
+
+Once the k-space distribution is established, there are also varying methods
+for analyzing the shear wave velocity dispersion. Different search strategies
+are employed to obtain the shear wave velocity values including peak detection
+in the k-space or a Radon sum approach to name two. Once the shear wave phase
+velocities are identified, different models can be fit to the data including a
+Voigt model or a linear model that has a specific intercept and slope over a
+given bandwidth. The choice of the bandwidth can also affect the results.
+
+With these variables associated with the processing, a set of preferred or
+recommended practices has yet to be established but will be the focus of future
+work.
