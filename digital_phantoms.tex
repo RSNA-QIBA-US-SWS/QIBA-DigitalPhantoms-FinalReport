@@ -16,7 +16,8 @@ A nominal curvilinear array configuration was chosen for all of the simulations
     \hline
     Radius of Curvature & 60 mm \\
     Element Height & 14 mm \\
-    Element Pitch & 0.477 mm (0.007 mm kerf) \\
+    Element Pitch & 0.477 mm \\
+     & (0.007 mm kerf) \\
     Center Frequency & 3.0 MHz \\
     Fractional Bandwidth & 100\% \\
     Elevation Focus & 50 mm \\
@@ -93,8 +94,8 @@ Viscoelastic digital phantoms have been created to more faithfully represent
 the known viscous properties of healthy and diseased liver tissue
 (Figure~\ref{fig:phantom_liver_scatter_plot}).  Given the large parametric
 space of focal / excitation configurations in the elastic digital phantoms, we
-restricted the viscoelastic phantoms to three representative parameter sets
-that closely match the CIRS Phase II phantoms
+restricted the viscoelastic phantoms to three representative material parameter
+sets that closely match the CIRS Phase II phantoms
 (Figure~\ref{fig:phantom_liver_scatter_plot}).  The viscoelastic parameters
 were numerically defining a shear relaxation model of the form:
 \begin{equation}
@@ -157,7 +158,8 @@ phantoms, a Fourier-based analysis is typically performed. As the data is
 discrete, fast Fourier transforms (FFTs) are applied to the data to transform
 the spatiotemporal data to the Fourier domain (commonly referred to k-space).
 Different groups apply different spatial and temporal windows to the data
-before the FFTs are applied which can alter the subsequent data analysis.
+before the FFTs are applied which can alter the subsequent data
+analysis~\cite{Harris1978}.
 
 Once the k-space distribution is established, there are also varying methods
 for analyzing the shear wave velocity dispersion. Different search strategies

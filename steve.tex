@@ -1,4 +1,5 @@
-\subsection{Open Source, GPU-accelerated, Finite-Difference, Time-Domain Software for Shear Wave Elastography Simulation (Dr. McAleavey)}
+\subsection{Open Source, GPU-accelerated, Finite-Difference, Time-Domain
+    Software for Shear Wave Elastography Simulation (Dr.\ McAleavey)}
 
 \subsubsection{Summary}
 Two finite difference time domain codes have been created for the purpose of
@@ -105,7 +106,7 @@ visualization of the motion. The user interface for this part of the simulation
 is depicted in Figure~\ref{fig:steve-post-UI}. In this part of the software, speckle
 bias can be approximated and noise added to the data. Shear wave propagation
 videos may be produced inside the interface. The data may then be processed
-into SWEI images with user defined tracking offsets and push beam spacings
+into SWEI images with user defined tracking offsets and push beam spacing
 (beam ensemble settings). Because this SWEI specific functionality is in the
 last step of the simulation work flow, images using various beam ensemble
 settings may be produced. The files may also be opened in Matlab.
@@ -127,7 +128,7 @@ equations. They may be expressed as:
 \rho \frac{\delta v}{\delta t} = \nabla P\\
 \frac{\delta P}{\delta t} = \Lambda \nabla \cdot v,
 \end{align*}
-where $v$ is the velocity, $P$ is the pressure, $\rho$ is the denstiy and
+where $v$ is the velocity, $P$ is the pressure, $\rho$ is the density and
 $\Lambda$ is Lame's first parameter.  We use the capital $\Lambda$ here to
 distinguish it from the wavelength, $\lambda$. Although the equations could be
 combined to arrive at a second-order differential equation, the first order
@@ -184,7 +185,7 @@ conditions. In order to prevent reflections, the outer several cells of the
 computational domain are replaced by perfectly matched layers (PMLs). The PML
 is implemented by splitting the update equations for the perimeter of the grid
 into separate equations for each individual spatial derivative and the
-weighting each derivate by a scaling factor. This is referred to as operator
+weighting each derivative by a scaling factor. This is referred to as operator
 stretching. For the velocity case, there is only one spatial derivative to
 begin with and so the 
 number of equations is unchanged. The velocity PMLs are given by:
@@ -201,7 +202,7 @@ by:
 \end{align*}
 and the equations for the other dimensions are the same with substitution of
 the subscript. The term $s_x$ is an attenuation that is set as desired to
-achieve good absorption of the incident wave. Typically this value is ramped up
+achieve good absorption of the incident wave. Typically this value is increased up
 exponentially from zero at the inner edge of the PML to some maximum value at
 the domain’s outer edge.
 
@@ -246,7 +247,7 @@ subscripts (e.g., $T_{xy}$ share a plane with $vx$ and $vy$).
 \end{figure}
 
 \paragraph{Cylindrical Wave Simulations}
-The cylindrical wave excitation of a homogenous media provides a test case for
+The cylindrical wave excitation of a homogeneous media provides a test case for
 the accuracy of the 3D simulation. The solution is easily modeled and is built
 into our MLE solver. Therefore, the simulation’s accuracy can be readily
 verified in this test case. Here a set of five viscoelastic simulations were
@@ -312,7 +313,7 @@ within the bounding circle.
 \label{fig:steve-stl-swei}
 \end{figure}
 
-\subsubsection{Comparison of phantom and simulated shear wave data}
+\subsubsection{Comparison of Phantom and Simulated Shear Wave Data}
 QIBA SWS Phase II Set 1 phantoms were scanned at the University of Rochester
 with a Siemens Antares scanner and custom research beam sequences
 (Figure~\ref{fig:steve-phantomA}).  A push aperture of F/3.5 focused at a depth

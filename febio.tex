@@ -1,8 +1,8 @@
 \subsection{FEBio (Dr. Jiang)}
-FEBio~\cite{Mass2012} models orresponding to three Phase II CIRS phantom
+FEBio~\cite{Mass2012} models corresponding to three Phase II CIRS phantom
 materials (E2297-AX, E2297-BX and E2297-CX) have been generated. Quasi-linear
 viscoelastic material properties and an acoustic pushing beam based on a
-published paper from Dr.  Palmeri’s work~\cite{Palmeri2008} have been assigned
+published paper from Dr.  Palmeri's work~\cite{Palmeri2008} have been assigned
 to each numerical model.  Those models were used to investigate estimation of
 shear wave (SW) phase velocity and SW dispersion. Those FEBio models contain
 1.0--1.5 million tetrahedral elements and take approximately 6 hours to solve
@@ -24,7 +24,7 @@ There were three tasks in this effort:
             \item One cycle of the sinusoidal pulse was applied
         \end{itemize}
     \item[Task 2:] Fit material properties using a Quasi-linear Viscoelastic
-    (QLV) model available in FEBio~\cite{Weiss2012}
+    (QLV) model available in FEBio~\cite{Mass2012}
         
     Viscoelasticity of soft tissues was taken into consideration by a
     quasi-linear viscoelastic (QLV) material model~\cite{Fung1993a} implemented
@@ -33,7 +33,7 @@ There were three tasks in this effort:
     follows,
 
     \begin{equation}\label{eqn:qlv}
-        G(t) = 1 + \sum\limits_{i=1}^N \gamma_i \exp\left(\frac{-t}{\tau_i}\right)
+        G(t) = 1 + \sum\limits_{i=1}^N \gamma_i \exp\left(\frac{-t}{\tau_i}\right),
     \end{equation}
 
     where $\tau_i$ represents one of relaxation time values in the Prony
@@ -57,10 +57,11 @@ There were three tasks in this effort:
     \label{fig:sls}
     \end{figure}
 
-    \begin{table}\label{table:qlv}
+    \begin{table}
         \centering
         \caption{Viscoelastic coefficients and relaxation times used in the
         FEBio simulations.}
+        \label{table:qlv}
         \begin{tabular}{|l|l|l|l|l|l|}
         \hline
         \textbf{Component} & \textbf{$\gamma_i$} & \textbf{$\tau_i$ (s)} & \textbf{$G_\infty$ (kPa)} & \textbf{Poisson's Ratio} & \textbf{$\rho$ (g/cm$^3$)}\\
@@ -78,7 +79,7 @@ There were three tasks in this effort:
     200, 250 and 300 Hz) for each phantom. Time step sizes were scaled
     according to respective excitation frequencies (approximately 1/100 $f$,
     where $f$ is the excitation frequency). All shear wave (phase) velocities
-    were estimated by a lateral TTP algorithm~\cite{Pameri2008}.  
+    were estimated by a lateral TTP algorithm~\cite{Palmeri2008}.  
 
 \end{description}
 
@@ -112,10 +113,11 @@ for estimations of SW phase velocities.
 \label{fig:febio_results}
 \end{figure}
 
-\begin{table}\label{table:febio_results}
+\begin{table}
     \caption{Tabulated results of estimated phase velocities (m/s) for three
         different materials from 50--300 Hz. The estimated phase velocity is
         displayed as mean $\pm$ one standard deviation.}
+    \label{table:febio_results}
     \begin{tabular}{|c|c|c|c|c|c|c|}
         \hline
          & \textbf{50 Hz} & \textbf{100 Hz} & \textbf{150 Hz} & \textbf{200 Hz} & \textbf{250 Hz} & \textbf{300 Hz} \\

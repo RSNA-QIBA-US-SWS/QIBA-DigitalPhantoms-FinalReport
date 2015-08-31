@@ -3,7 +3,7 @@
 The System Dependency and Phantoms Task Force identified that ``simple'',
 analytic viscoelastic material models, such as Voigt and Maxwell materials,
 inadequately capture the phase velocity trends measured across the energetic
-frequency ranges associate with liver shear wave speed characterization [CITE].
+frequency ranges associate with liver shear wave speed characterization.
 Instead of using an analytic VE material model, we proposed characterizing the
 phantoms using a linear dispersion model of the form
 
@@ -24,7 +24,26 @@ This model was applied to human data in patients with liver
 fibrosis~\cite{Palmeri2011} (Figure~\ref{fig:phantom_liver_scatter_plot}) to
 establish a range of realistic linear dispersion VE material values for healthy
 through advanced fibrosis liver health.  The 2D Fourier transform data were
-processed used the methods describe in~\cite{Nightingale2015}.
+processed using the methods described in~\cite{Nightingale2015,Bernal2011}.  The
+data were also validated using human data acquired using a Philips shear wave
+imaging system~\cite{Chen2012a}.  
+
+Two important frequency analysis points should be noted:
+\begin{enumerate}
+    \item The choice of frequency range from 100--400 Hz was chosen based on
+        empirical studies of the Duke human data and should not be considered a
+        universal recommendation across different imaging systems and clinical
+        targets.  Other choices for estimating a linear phase velocity slope
+        could include a fixed frequency range about the most energetic center
+        frequency or an adaptive frequency range based on each dataset.  
+
+    \item The peak phase velocity data in k-space can be strongly influenced by
+        the choice of windowed spatial and temporal shear wave velocity
+        data~\cite{Harris1978}.  Inclusion of shear wave data in or adjacent to
+        the acoustic radiation force excitation can introduce diffraction
+        effects that can significantly skew the frequency analysis of the
+        propagating shear waves.
+\end{enumerate}
 
 \input{fig_phantom_liver_scatter_plot}
 
