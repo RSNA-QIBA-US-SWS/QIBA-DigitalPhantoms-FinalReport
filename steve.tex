@@ -5,7 +5,7 @@
 Two finite difference time domain codes have been created for the purpose of
 simulating shear wave propagation: a 2D ``C-plane'' simulator allowing for
 arbitrary viscoelastic models in a plane normal to the push beam, and a 3D
-“B-scan” simulator using a Kelvin-Voigt viscoelastic model. The 3D simulator
+``B-scan'' simulator using a Kelvin-Voigt viscoelastic model. The 3D simulator
 includes a tool for simulation of realistic push beams by full wave simulation
 of acoustic propagation from a definable aperture, and allows modeling of sound
 speed variations in the target, as well as variations in shear wave speed. A
@@ -136,7 +136,17 @@ equation are more convenient for discretization using finite difference method.
 Using the so-called staggered grid depicted (Figure~\ref{fig:steve-staggered-grid}), the differential
 equations may be split into component parts and discretized as:
 
-\centerline{\includegraphics[width=0.55\linewidth]{steve/figs/image7.png}}
+\begin{gather*}
+    v_x^{i+\frac{1}{2},j,k,n+1} = v_x^{i+\frac{1}{2},j,k,n} + \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta x}\\
+    v_y^{i,j+\frac{1}{2},k,n+1} = v_y^{i,j+\frac{1}{2},k,n} + \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta y}\\
+    v_z^{i,j,k+\frac{1}{2},n+1} = v_z^{i,j,k+\frac{1}{2},n} + \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta z}\\
+    P^{i,j,k,n+\frac{1}{2}} = P^{i,j,k,n-\frac{1}{2}} + \Lambda \Delta t 
+\left( 
+    \frac{v_x^{i+\frac{1}{2},j,k,n}  - v_x^{i-\frac{1}{2},j,k,n}}{\Delta x} +
+    \frac{v_y^{i,j+\frac{1}{2},k,n}  - v_y^{i,j-\frac{1}{2},k,n}}{\Delta y} +
+    \frac{v_z^{i,j,k+\frac{1}{2},n}  - v_z^{i,j,k-\frac{1}{2},n}}{\Delta z}
+\right)
+\end{gather*}
 
 Here $i$, $j$, and $k$ are discrete integer coordinates in the $x$, $y$, and
 $z$ dimensions, respectively. The discretization of the time dimension is given
