@@ -203,7 +203,14 @@ stretching. For the velocity case, there is only one spatial derivative to
 begin with and so the 
 number of equations is unchanged. The velocity PMLs are given by:
 
-\centerline{\includegraphics[width=0.5\linewidth]{steve/figs/image10.png}}
+\begin{gather*}
+    v_x^{i+\frac{1}{2},j,k,n+1} = C_x v_x^{i+\frac{1}{2},j,k,n} + 
+                                  D_x \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta x}\\
+    v_y^{i,j+\frac{1}{2},k,n+1} = C_y v_y^{i,j+\frac{1}{2},k,n} + 
+                                  D_y \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta y}\\
+    v_z^{i,j,k+\frac{1}{2},n+1} = C_z v_z^{i,j,k+\frac{1}{2},n} + 
+                                  D_z \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta z}\\
+\end{gather*}
 
 Here $Cx, Cy, Cz$ and $Dx, Dy, Dz$ are the PML scaling factors for the $x, y,$
 and $z$ derivatives, respectively. Notice that $Dx, Dy,$ and $Dz$ replace the
