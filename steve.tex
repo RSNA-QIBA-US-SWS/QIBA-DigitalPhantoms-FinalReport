@@ -202,7 +202,14 @@ taken to equal that immediately inside. Let $I$, $J$, and $K$ be the lengths of
 the computational grid in the $i$, $j$, and $k$ directions, respectively. The
 boundary conditions may be written as: 
 
-\centerline{\includegraphics[width=0.3\linewidth]{steve/figs/image9.png}}
+\begin{align*}
+    v_x^{\frac{1}{2},j,k,n} &= v_x^{-\frac{1}{2},j,k,n} \\
+    v_x^{(N-1)-\frac{1}{2},j,k,n} &= v_x^{(N-1)+\frac{1}{2},j,k,n} \\
+    v_y^{i,\frac{1}{2},k,n} &= v_y^{i,-\frac{1}{2},k,n} \\
+    v_y^{i,(J-1)-\frac{1}{2},k,n} &= v_y^{i,(J-1)+\frac{1}{2},k,n} \\
+    v_z^{i,j,\frac{1}{2},n} &= v_z^{i,j,-\frac{1}{2},n} \\
+    v_z^{i,j,(K-1)-\frac{1}{2},n} &= v_z^{i,j,(K-1)+\frac{1}{2},n} \\
+\end{align*}
 
 Note that these conditions are the same as stating that the derivative of the
 velocity across the boundary is zero. We simply skip calculating the derivative
