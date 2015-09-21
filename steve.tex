@@ -182,7 +182,20 @@ simulating an ARF beam, the long duration of the pulse diminishes the effect of
 any transients yielding a narrow spectrum. To achieve what amounts to an
 exponential decay law, the velocity update equation are rewritten as:
 
-\centerline{\includegraphics[width=0.65\linewidth]{steve/figs/image8.png}}
+\begin{gather*}
+    v_x^{i+\frac{1}{2},j,k,n+1} = 
+    \left( 1 - \alpha \sqrt{\frac{\Lambda}{\rho}} \Delta t \right) 
+    \left( v_x^{i+\frac{1}{2},j,k,n} + 
+    \frac{1}{\rho} \Delta t \frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta x} \right)\\
+    v_y^{i,j+\frac{1}{2},k,n+1} = 
+    \left( 1 - \alpha \sqrt{\frac{\Lambda}{\rho}} \Delta t \right) 
+    \left( v_y^{i,j+\frac{1}{2},k,n} + 
+    \frac{1}{\rho} \Delta t \frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta y} \right)\\
+    v_z^{i,j,k+\frac{1}{2},n+1} = 
+    \left( 1 - \alpha \sqrt{\frac{\Lambda}{\rho}} \Delta t \right) 
+    \left( v_z^{i,j,k+\frac{1}{2},n} + 
+    \frac{1}{\rho} \Delta t \frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta z} \right)\\
+\end{gather*}
 
 At the boundaries of the computational domain, the velocity outside the grid is
 taken to equal that immediately inside. Let $I$, $J$, and $K$ be the lengths of
