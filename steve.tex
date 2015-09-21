@@ -137,15 +137,18 @@ Using the so-called staggered grid depicted (Figure~\ref{fig:steve-staggered-gri
 equations may be split into component parts and discretized as:
 
 \begin{gather*}
-    v_x^{i+\frac{1}{2},j,k,n+1} = v_x^{i+\frac{1}{2},j,k,n} + \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta x}\\
-    v_y^{i,j+\frac{1}{2},k,n+1} = v_y^{i,j+\frac{1}{2},k,n} + \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta y}\\
-    v_z^{i,j,k+\frac{1}{2},n+1} = v_z^{i,j,k+\frac{1}{2},n} + \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta z}\\
+    v_x^{i+\frac{1}{2},j,k,n+1} = v_x^{i+\frac{1}{2},j,k,n} + 
+                                  \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta x}\\
+    v_y^{i,j+\frac{1}{2},k,n+1} = v_y^{i,j+\frac{1}{2},k,n} + 
+                                  \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta y}\\
+    v_z^{i,j,k+\frac{1}{2},n+1} = v_z^{i,j,k+\frac{1}{2},n} + 
+                                  \frac{1}{\rho}\frac{P^{i+1,j,k,n+\frac{1}{2}}-P^{i,j,k,n+\frac{1}{2}}}{\Delta z}\\
     P^{i,j,k,n+\frac{1}{2}} = P^{i,j,k,n-\frac{1}{2}} + \Lambda \Delta t 
-\left( 
-    \frac{v_x^{i+\frac{1}{2},j,k,n}  - v_x^{i-\frac{1}{2},j,k,n}}{\Delta x} +
-    \frac{v_y^{i,j+\frac{1}{2},k,n}  - v_y^{i,j-\frac{1}{2},k,n}}{\Delta y} +
-    \frac{v_z^{i,j,k+\frac{1}{2},n}  - v_z^{i,j,k-\frac{1}{2},n}}{\Delta z}
-\right)
+                              \left( 
+                                    \frac{v_x^{i+\frac{1}{2},j,k,n}  - v_x^{i-\frac{1}{2},j,k,n}}{\Delta x} +
+                                    \frac{v_y^{i,j+\frac{1}{2},k,n}  - v_y^{i,j-\frac{1}{2},k,n}}{\Delta y} +
+                                    \frac{v_z^{i,j,k+\frac{1}{2},n}  - v_z^{i,j,k-\frac{1}{2},n}}{\Delta z}
+                              \right)
 \end{gather*}
 
 Here $i$, $j$, and $k$ are discrete integer coordinates in the $x$, $y$, and
